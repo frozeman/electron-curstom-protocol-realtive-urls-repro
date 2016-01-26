@@ -13,8 +13,9 @@ Then start the test app by running:
 
 In another terminal start the electron app:
 
-   $ cd repro/
-   $ electron .
+    $ cd repro/
+    $ electron .
 
-To test the difference, run the meteor app without the `--production` flag and then restart electron.
+**To test the difference, run then the meteor app without the `--production` flag and then restart electron.**
+
 You may need to increase the number after the `?` in line 77 of the `main.js`, to prevent caching.
