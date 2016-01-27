@@ -7,10 +7,6 @@
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-
 
     <script>
 
@@ -21,6 +17,18 @@
       setTimeout(function() {
         document.body.appendChild(link);
       }, 2000);
+
+
+
+      var count = 1;
+
+      // create many links to scripts
+      for (var i = 1000; i >= 0; i--) {
+        var link = document.createElement("script");
+        link.src ='script.js';
+
+        document.body.appendChild(link);
+      };
 
     </script>
   </body>
