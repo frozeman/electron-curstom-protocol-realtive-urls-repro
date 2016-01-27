@@ -7,24 +7,13 @@ const BrowserWindow = electron.BrowserWindow;  // Module to create native browse
 var mainWindow = null;
 
 
-
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
 app.on('ready', function() {
   const protocol = require('protocol');
 
+
+
   // add custom protocol
   protocol.registerHttpProtocol('mist', function(request, callback) {
-
-      // var call = {
-      //     // rewrite all 
-      //     url: (request.url.indexOf('http://interface') !== -1)
-      //       ? 'http://localhost:4000/' + request.url.replace('http://interface/','').replace('http://interface','').replace('http:///','').replace('http://','')
-      //       : request.url,
-      //     method: request.method,
-      //     referrer: request.referrer,
-      //     session: null
-      // };
 
       request.url = request.url.replace('mist:','http:');
 
@@ -38,7 +27,6 @@ app.on('ready', function() {
       // }
 
       console.log(request.url);
-      // console.log(request.url, ' -> ', call.url);
 
       callback(request);
 
@@ -58,7 +46,7 @@ app.on('ready', function() {
   }});
 
   // and load the index.html of the app.
-  mainWindow.loadURL('mist://localhost:3000/'); // change to http://localhost:3000/ as reference
+  mainWindow.loadURL('http://localhost:3000/?2324'); // change to mist://localhost:3000/ as reference
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
